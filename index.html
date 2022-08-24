@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+         
+
+    </style>
+</head>
+<body>
+    <div id="con">
+
+    <div id="nav">
+        <div >
+            <img id="navimg" src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
+        </div>
+        <div id="navdiv2">
+
+<a href="index.html"><button>Home</button></a>
+<a href="dashboard.html"><button>Dashboard</button></a>
+<a href="mybooks.html"><button>My Books</button></a>
+<a href="bookmark.html"><button>Bookmark</button></a>
+
+        </div>
+    </div>
+
+
+    <div id="formdiv">
+        
+            <h2 id="heding">Library Management System</h2>
+            <input type="text" id="book" placeholder="Book Name"/>
+            <input type="text" id="AuthorName" placeholder="Author Name"/>
+            <input type="text" id="BookDescription" placeholder="Book Description"/>
+            <label >Adding Date:</label>
+            <input   type="date" id="AddDate"  />
+            <select id="SelectsCate" name="Select_Category">
+                <option value="">Select Category</option>
+                <option value="sports">Sports</option>
+                <option value="fiction">Fiction</option>
+                <option value="finance">Finance</option>
+                <option value="Education">Education</option>
+            </select>
+            <input type="number" id="BooksPrice" placeholder="Book's Price"/>
+           
+            <button type="submit" id="submit" onclick="submitData()">Submit</button>
+        
+
+    </div>
+
+    </div>
+</body>
+</html>
+<script>
+let formData=[]
+
+function submitData(){
+    // formData.preventDefault()
+    let BookName = document.getElementById('book').value
+    let Author_Name = document.getElementById('AuthorName').value
+    let Book_Description = document.getElementById('BookDescription').value
+    let Add_Dates = document.getElementById('AddDate').value
+    let Select_Category = document.getElementById('SelectsCate').value
+    let Books_Price = document.getElementById('BooksPrice').value
+
+    let object={
+    Book_name:BookName,
+    Author_Name:Author_Name,
+    Book_Description:Book_Description,
+    Add_Dates:Add_Dates,
+    Select_Category:Select_Category,
+    Books_Price:Books_Price
+}
+formData.push(object);
+console.log(object)
+// localStorage.setItem("book-list", JSON.stringify(formData));
+window.localStorage.setItem('book-list', JSON.stringify(formData));
+console.log(formData)
+}
+
+
+
+
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="con">
+        <div id="nav">
+            <div >
+                <img id="navimg" src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
+            </div>
+            <div id="navdiv2">
+    
+    <a href="index.html"><button>Home</button></a>
+    <a href="dashboard.html"><button>Dashboard</button></a>
+    <a href="mybooks.html"><button>My Books</button></a>
+    <a href="bookmark.html"><button>Bookmark</button></a>
+    
+            </div>
+        </div>
+        
+        <div id="table" >
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Description</th>
+                        <th>Added Date</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Buy</th>
+                        <th>Bookmark</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+
+let data = JSON.parse(window.localStorage.getItem('book-list'));
+console.log(data,"data")
+
+data.map((el)=>{
+
+    var row =document.createElement("tr");
+        
+        var td1 =document.createElement("td");
+        td1.textContent = `${el.Book_name}`;
+        var td2 =document.createElement("td");
+        td2.textContent = `${el.Author_Name}`;
+        var td3 =document.createElement("td");
+        td3.textContent = `${el.Book_Description}`;
+        var td4 =document.createElement("td");
+        td4.textContent = `${el.Add_Dates}`;
+        var td5 =document.createElement("td");
+        td5.textContent = `${el.Select_Category}`;
+        var td6 =document.createElement("td");
+        td6.textContent = `${el.Books_Price}`;
+        var td7 =document.createElement("button");
+        
+        var td8 =document.createElement("td");
+        td7.textContent = "Buy";
+        td7.addEventListener("click", BuyBook);
+        td8.textContent="Bookmark"
+        row.append(td1, td2, td3, td4,td5, td6,td7,td8);
+        document.querySelector("tbody").append(row);
+    console.log(el)
+    function BuyBook(event){
+            console.log("vinayak")
+            console.log(el)
+            window.localStorage.removeItem('el');
+        }
+})
+
+
+</script>
